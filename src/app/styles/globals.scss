@@ -1,0 +1,70 @@
+:root {
+	--accent: rgb(54, 70, 214);
+	--accent-light-color: rgba(54, 70, 214, 0.9);
+	--accent-secondary: rgba(54, 70, 214, 0.75);
+	--black-color: rgb(19, 19, 19);
+	--text-secondary: rgb(123 142 152);
+	--text-outline: rgba(207, 216, 220, 0.93);
+	--text-form: rgb(236 239 241);
+	--white-color: rgb(255 255 255);
+	--red: #cf1616;
+	--custom-lilac: rgba(120, 69, 221, 0.9);
+	--custom-gray: rgb(84, 88, 89);
+	--custom-dark-gray: rgba(58, 58, 58, 0.85);
+	--background-gray: rgba(0, 0, 0, 0.2);
+	--background-light-gray: rgb(35, 35, 35);
+
+	--elevation-01: 0 0.5px 2px 0 rgb(96 97 112 / 24%),
+		0 0 1px 0 rgb(40 41 61 / 16%);
+	--elevation-02: 0 2px 16px 0 rgb(96 97 112 / 16%),
+		0 0 1px 0 rgb(40 41 61 / 2%);
+	--elevation-03: 0 -4px 8px 0 rgb(96 97 112 / 16%),
+		0 0 2px 0 rgb(40 41 61 / 4%);
+	--elevation-04: 0 8px 16px 0 rgb(96 97 112 / 16%),
+		0 2px 4px 0 rgb(40 41 61 / 4%);
+	--elevation-05: 0 16px 24px 0 rgb(96 97 112 / 16%),
+		0 2px 8px 0 rgb(40 41 61 / 4%);
+	--elevation-06: 0 20px 32px 0 rgb(96 97 112 / 24%),
+		0 2px 8px 0 rgb(40 41 61 / 8%);
+
+	--background: #ffffff;
+	--foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background: #0a0a0a;
+		--foreground: #ededed;
+	}
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+#__next {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	background-color: var(--background-light-gray);
+}
+
+@media (prefers-color-scheme: dark) {
+	html {
+		color-scheme: dark;
+	}
+}

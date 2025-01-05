@@ -1,0 +1,44 @@
+{
+	"ts-node": {
+		"esm": true,
+		"experimentalSpecifiers": true,
+		"compilerOptions": {
+			"module": "nodenext",
+			"moduleResolution": "nodenext"
+		}
+	},
+  "compilerOptions": {
+		"target": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["src/*"]
+		},
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/**/*"],
+  "watchOptions": {
+    "watchFile": "priorityPollingInterval",
+    "watchDirectory": "dynamicprioritypolling",
+    "fallbackPolling": "dynamicPriority",
+    "synchronousWatchDirectory": true,
+    "excludeDirectories": ["**/node_modules", "dist"]
+  },
+  "outDir": "./dist/",
+  "exclude": ["node_modules"]
+}
