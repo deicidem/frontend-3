@@ -3,7 +3,7 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"dev": "next dev -p 5080 && blitz dev",
+		"dev": "next dev -p 8080 && blitz dev",
 		"build": "next build && blitz build",
 		"start": "next start && blitz start",
 		"seed": "blitz db seed --file=db/seed.js --require ts-node/register",
