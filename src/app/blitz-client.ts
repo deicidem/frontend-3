@@ -6,7 +6,7 @@ import { BlitzRpcPlugin } from '@blitzjs/rpc';
 export const { withBlitz, BlitzProvider } = setupBlitzClient({
 	plugins: [
 		AuthClientPlugin({
-			cookiePrefix: 'event_management_next',
+			cookiePrefix: 'cms_app',
 		}),
 		BlitzRpcPlugin({}),
 	],

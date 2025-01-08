@@ -23,9 +23,9 @@ export default resolver.pipe(
 			createdById: userId,
 		};
 
-		let event;
+		let comment;
 		if (isUpdate) {
-			event = await db.comment.update({
+			comment = await db.comment.update({
 				where: { id: input.id },
 				data: {
 					...commentData,
@@ -36,7 +36,7 @@ export default resolver.pipe(
 				},
 			});
 		} else {
-			event = await db.comment.create({
+			comment = await db.comment.create({
 				data: {
 					...commentData,
 				},
@@ -47,6 +47,6 @@ export default resolver.pipe(
 			});
 		}
 
-		return event;
+		return comment;
 	}
 );

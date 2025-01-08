@@ -19,7 +19,7 @@ export const {
 } = setupBlitzServer({
 	plugins: [
 		AuthServerPlugin({
-			cookiePrefix: 'event_management_next',
+			cookiePrefix: 'cms_app',
 			storage: PrismaStorage(db),
 			isAuthorized: simpleRolesIsAuthorized,
 		}),

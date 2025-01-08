@@ -5,7 +5,7 @@ import { ChangeEvent, Suspense, useEffect, useState } from 'react';
 import { useQuery } from '@blitzjs/rpc';
 import getPostsWithFilters from '@/features/post/api/queries/getPostsWithFilters';
 import PostCardList from '@/components/Posts/PostCardList/PostCardList';
-import { PostFilters } from '@/components/Posts/EventFilters/PostFilters';
+import { PostFilters } from '@/components/Posts/PostFilters/PostFilters';
 import { Loader } from '@/shared/components';
 
 export default function CatalogPage() {
