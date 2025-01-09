@@ -13,7 +13,7 @@ export default function HomePage() {
 				alignItems: 'center',
 				gap: '12px',
 			}}>
-			<h1>Добро пожаловать!</h1>
+			<h1>Блог</h1>
 			<Button variant='contained' href='/posts'>
 				Читать статьи
 			</Button>
