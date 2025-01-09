@@ -5,9 +5,9 @@ import { HeaderText } from '@/shared/components';
 import { useSession } from '@blitzjs/auth';
 import { useEffect, useMemo, useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { headerLinksNoAuth } from '../constants/headerLinksNoAuth';
-import { headerLinksAdmin } from '../constants/headerLinksAdmin';
-import { headerLinksClient } from '../constants/headerLinksClient';
+import { headerLinksNoAuth } from '../links/headerLinksNoAuth';
+import { headerLinksAdmin } from '../links/headerLinksAdmin';
+import { headerLinksClient } from '../links/headerLinksClient';
 import { LogoutButton } from '../LogoutButton/LogoutButton';
 import { THeaderLinks } from './types';
 
