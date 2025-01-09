@@ -119,9 +119,6 @@ export const ChangePasswordModal = ({
 						right: 8,
 						top: 8,
 						color: 'var(--white-color)',
-						'&:hover': {
-							color: 'var(--accent)',
-						},
 					}}>
 					<CloseIcon />
 				</IconButton>
