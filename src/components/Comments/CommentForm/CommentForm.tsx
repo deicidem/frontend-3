@@ -4,8 +4,6 @@ import { toast } from 'react-toastify';
 import { useMutation } from '@blitzjs/rpc';
 import { useRouter } from 'next/navigation';
 import { Box, Button } from '@mui/material';
-import { LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
 import { HeaderText, Loader } from '@/shared/components';
 import { MutationTextField } from '@/shared/components/mutationsComponent';
@@ -52,43 +50,41 @@ export const CommentForm = ({
 
 	return (
 		<Suspense fallback={<Loader />}>
-			<LocalizationProvider dateAdapter={AdapterDayjs}>
-				<Box
-					sx={{
-						display: 'flex',
-						flexDirection: 'column',
-						gap: '12px',
-					}}>
-					<HeaderText text={'Новый комментарий'} size='h4' />
+			<Box
+				sx={{
+					display: 'flex',
+					flexDirection: 'column',
+					gap: '12px',
+				}}>
+				<HeaderText text={'Новый комментарий'} size='h4' />
 
-					<form onSubmit={handleSubmit(onSubmit)}>
-						<MutationTextField
-							name='text'
-							label='Текст'
-							register={register}
-							errors={errors}
-							multiline
-							fullWidth
-							required
-							rows={4}
-						/>
-						<Box
-							sx={{
-								mt: 1,
-								display: 'flex',
-								justifyContent: 'end',
-								gap: '8px',
-							}}>
-							<Button variant='outlined' onClick={() => router.back()}>
-								Отмена
-							</Button>
-							<Button type='submit' variant='contained'>
-								{submitButtonText}
-							</Button>
-						</Box>
-					</form>
-				</Box>
-			</LocalizationProvider>
+				<form onSubmit={handleSubmit(onSubmit)}>
+					<MutationTextField
+						name='text'
+						label='Текст'
+						register={register}
+						errors={errors}
+						multiline
+						fullWidth
+						required
+						rows={4}
+					/>
+					<Box
+						sx={{
+							mt: 1,
+							display: 'flex',
+							justifyContent: 'end',
+							gap: '8px',
+						}}>
+						<Button variant='outlined' onClick={() => router.back()}>
+							Отмена
+						</Button>
+						<Button type='submit' variant='contained'>
+							{submitButtonText}
+						</Button>
+					</Box>
+				</form>
+			</Box>
 		</Suspense>
 	);
 };

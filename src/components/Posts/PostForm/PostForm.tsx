@@ -4,8 +4,6 @@ import { toast } from 'react-toastify';
 import { useMutation } from '@blitzjs/rpc';
 import { useRouter } from 'next/navigation';
 import { Box, Button } from '@mui/material';
-import { LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import createPost from '@/features/post/api/mutations/createPost';
 
 import { HeaderText, Loader } from '@/shared/components';
@@ -69,51 +67,49 @@ export const PostForm = ({
 
 	return (
 		<Suspense fallback={<Loader />}>
-			<LocalizationProvider dateAdapter={AdapterDayjs}>
-				<Box className={s.formWrapper}>
-					<HeaderText
-						text={initialData ? 'Редактирование поста' : 'Создание поста'}
-						size='h1'
+			<Box className={s.formWrapper}>
+				<HeaderText
+					text={initialData ? 'Редактирование поста' : 'Создание поста'}
+					size='h1'
+				/>
+
+				<form onSubmit={handleSubmit(onSubmit)} className={s.form}>
+					<MutationTextField
+						name='title'
+						label='Заголовок'
+						register={register}
+						required
+						errors={errors}
 					/>
 
-					<form onSubmit={handleSubmit(onSubmit)} className={s.form}>
-						<MutationTextField
-							name='title'
-							label='Заголовок'
-							register={register}
-							required
-							errors={errors}
-						/>
+					<MutationTextField
+						name='description'
+						label='Контент'
+						register={register}
+						errors={errors}
+						multiline
+						fullWidth
+						required
+						rows={4}
+					/>
 
-						<MutationTextField
-							name='description'
-							label='Контент'
-							register={register}
-							errors={errors}
-							multiline
-							fullWidth
-							required
-							rows={4}
-						/>
+					<SelectCategories
+						categories={categories}
+						onSetCategoriesData={setCategoriesData}
+						errors={errors}
+						control={control}
+					/>
 
-						<SelectCategories
-							categories={categories}
-							onSetCategoriesData={setCategoriesData}
-							errors={errors}
-							control={control}
-						/>
-
-						<Box className={s.buttons}>
-							<Button variant='outlined' onClick={() => router.back()}>
-								Отмена
-							</Button>
-							<Button type='submit' variant='contained'>
-								{submitButtonText}
-							</Button>
-						</Box>
-					</form>
-				</Box>
-			</LocalizationProvider>
+					<Box className={s.buttons}>
+						<Button variant='outlined' onClick={() => router.back()}>
+							Отмена
+						</Button>
+						<Button type='submit' variant='contained'>
+							{submitButtonText}
+						</Button>
+					</Box>
+				</form>
+			</Box>
 		</Suspense>
 	);
 };
