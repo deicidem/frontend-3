@@ -45,15 +45,16 @@ export const HeaderMenu = () => {
 					<HeaderText text='CMS' size='h3' color='black' />
 				</Link>
 				<Box sx={{ color: 'black' }}>
-					{navLinks.map((item) => (
-						<IconButton
-							color='inherit'
-							href={item.link as string}
-							key={`${item.link}`}
-							onClick={(e) => pathname === item.link && e.preventDefault()}>
-							{item.icon}
-						</IconButton>
-					))}
+					{!isLoggingOut &&
+						navLinks.map((item) => (
+							<IconButton
+								color='inherit'
+								href={item.link as string}
+								key={`${item.link}`}
+								onClick={(e) => pathname === item.link && e.preventDefault()}>
+								{item.icon}
+							</IconButton>
+						))}
 					{(session.userId || isLoggingOut) && <LogoutButton />}
 				</Box>
 			</Container>

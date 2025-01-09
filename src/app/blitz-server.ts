@@ -7,6 +7,7 @@ import {
 import { BlitzLogger } from 'blitz';
 import { RpcServerPlugin } from '@blitzjs/rpc';
 import db from '../../db';
+import { authConfig } from './blitz-auth-config';
 
 export const {
 	api,
@@ -19,7 +20,7 @@ export const {
 } = setupBlitzServer({
 	plugins: [
 		AuthServerPlugin({
-			cookiePrefix: 'cms_app',
+			...authConfig,
 			storage: PrismaStorage(db),
 			isAuthorized: simpleRolesIsAuthorized,
 		}),
