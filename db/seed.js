@@ -11,15 +11,15 @@ async function main() {
 
 	const category2 = await prisma.category.create({
 		data: {
-			title: 'Информационные технологии',
+			title: 'Обзоры',
 		},
 	});
 
 	// Обновляем создание пользователей согласно схеме
 	const user1 = await prisma.user.create({
 		data: {
-			firstName: 'Томас',
-			lastName: 'Шелби',
+			firstName: 'Админ',
+			lastName: 'Админов',
 			email: 'admin1@example.com',
 			hashedPassword: 'password',
 			role: 'ADMIN',
@@ -28,8 +28,8 @@ async function main() {
 
 	const user2 = await prisma.user.create({
 		data: {
-			firstName: 'Глеб',
-			lastName: 'Дроздов',
+			firstName: 'Юзер',
+			lastName: 'Юзеров',
 			email: 'client1@example.com',
 			hashedPassword: 'password',
 			role: 'ADMIN',
@@ -57,13 +57,15 @@ async function main() {
 			},
 		},
 	});
+
 	const post3 = await prisma.post.create({
 		data: {
-			title: 'Гайд по использованию приложения',
-			description: 'Текст гайда по использованию приложения...',
+			title: 'Обзор приложения',
+			description:
+				'Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae rerum magni, maxime a non, ullam harum aliquid numquam doloremque tenetur molestiae hic velit nobis eum minus dolor eius tempora dicta!',
 			createdById: user1.id,
 			categories: {
-				connect: [{ id: category1.id }],
+				connect: [{ id: category1.id }, { id: category2.id }],
 			},
 		},
 	});
