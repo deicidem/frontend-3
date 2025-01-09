@@ -3,6 +3,7 @@ import { AuthenticationError } from 'blitz';
 import db from '../../../../../db';
 import type { Role } from '../../../../../types';
 import { z } from 'zod';
+import { hash256 } from '@blitzjs/auth';
 
 const Input = z.object({
 	email: z.string().email(),
@@ -20,7 +21,7 @@ export default resolver.pipe(
 		if (!user) throw new AuthenticationError('User not found');
 
 		// Compare password
-		if (user.hashedPassword !== password) {
+		if (user.hashedPassword !== hash256(password)) {
 			throw new AuthenticationError('Invalid password');
 		}
 

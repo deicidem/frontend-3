@@ -1,3 +1,4 @@
+import { hash256 } from '@blitzjs/auth';
 import db from 'db';
 
 export default async function signup(input: {
@@ -7,7 +8,7 @@ export default async function signup(input: {
 	lastName: string;
 	isAdmin: boolean;
 }) {
-	const hashedPassword = input.password.trim();
+	const hashedPassword = hash256(input.password.trim());
 	const email = input.email.toLowerCase().trim();
 
 	const user = await db.user.create({

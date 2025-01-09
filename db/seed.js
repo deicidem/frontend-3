@@ -1,3 +1,4 @@
+import { hash256 } from '@blitzjs/auth';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
@@ -21,7 +22,7 @@ async function main() {
 			firstName: 'Админ',
 			lastName: 'Админов',
 			email: 'admin1@example.com',
-			hashedPassword: 'password',
+			hashedPassword: hash256('password'),
 			role: 'ADMIN',
 		},
 	});
@@ -31,8 +32,8 @@ async function main() {
 			firstName: 'Юзер',
 			lastName: 'Юзеров',
 			email: 'client1@example.com',
-			hashedPassword: 'password',
-			role: 'ADMIN',
+			hashedPassword: hash256('password'),
+			role: 'CLIENT',
 		},
 	});
 
