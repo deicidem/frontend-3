@@ -5,6 +5,8 @@ import { IPost } from '@/entities/post';
 import CategoryList from '../Categories/CategoryList';
 import CommentCardList from '@/components/Comments/CommentCardList/CommentCardList';
 import { CommentForm } from '@/components/Comments/CommentForm/CommentForm';
+import { useAppSelector } from '@/shared/hooks/storeHooks';
+import { authUserSelectors } from '@/app/store/slices/user';
 
 export const findPostById = (posts: IPost[], id: string) => {
 	return posts.find((post) => post.id === id);
@@ -16,6 +18,8 @@ type TPostDetailProps = {
 };
 
 export const PostDetail = ({ post, refetch }: TPostDetailProps) => {
+	const user = useAppSelector(authUserSelectors.getUser);
+
 	return (
 		<Box className={s.wrapper_block_text}>
 			<Box sx={{ mb: 1 }}>
@@ -31,10 +35,11 @@ export const PostDetail = ({ post, refetch }: TPostDetailProps) => {
 			<Box sx={{ mt: 2 }}>
 				<CommentCardList comments={post.comments} onDelete={refetch} />
 			</Box>
-
-			<Box sx={{ mt: 2 }}>
-				<CommentForm post={post} onSubmit={refetch} />
-			</Box>
+			{user.isAuth && (
+				<Box sx={{ mt: 2 }}>
+					<CommentForm post={post} onSubmit={refetch} />
+				</Box>
+			)}
 		</Box>
 	);
 };
